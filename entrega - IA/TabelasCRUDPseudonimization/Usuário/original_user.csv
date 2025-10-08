@@ -1,0 +1,6 @@
+,id,fk_fabrica,email,senha,nome,tipo_acesso,status,data_criacao,data_nascimento,cargo
+0,4f51780f-3770-4d76-8567-802b760646eb,1,gerente.seara@seara.com.br,Seara123,João Mendes,Administrador,Ativo,2025-10-03 11:47:26.806021,1980-05-15,Gerente
+1,570e0e1c-d3a8-4fad-a5cb-f512900e540f,1,supervisor.seara@seara.com.br,Seara123,Ana Costa,Supervisor,Ativo,2025-10-03 11:47:26.806021,1985-08-22,Supervisor
+2,a66b1520-9cfa-4b63-a5a7-cf8d5b97c9da,2,gerente.sadia@sadia.com.br,Sadia123,Pedro Oliveira,Administrador,Ativo,2025-10-03 11:47:26.806021,1978-12-10,Gerente
+3,c36318ea-680d-480d-a78d-2d3a4c03c369,3,gerente.jbs@jbs.com.br,Jbs12345,Fernanda Lima,Administrador,Ativo,2025-10-03 11:47:26.806021,1982-03-30,Gerente
+4,a849cb49-c9f2-40da-9727-900cb1067e43,4,supervisor.lins@jbs.com.br,Jbs12345,Ricardo Souza,Supervisor,Ativo,2025-10-03 11:47:26.806021,1990-07-18,Supervisor
