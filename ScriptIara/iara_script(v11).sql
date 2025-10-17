@@ -79,7 +79,7 @@ CREATE TABLE endereco (
 CREATE TABLE usuario (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     fk_fabrica INTEGER NOT NULL REFERENCES fabrica(id) ON DELETE CASCADE,
-    id_gerente UUID REFERENCES NOT NULL usuario(id),
+    id_gerente UUID NOT NULL REFERENCES usuario(id),
     email VARCHAR(100) UNIQUE NOT NULL,
     senha VARCHAR(100) NOT NULL,
     nome VARCHAR(100) NOT NULL, 
