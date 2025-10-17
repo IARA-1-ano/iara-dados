@@ -1,6 +1,4 @@
-
--- SCRIPT DATALOAD CORRIGIDO
-
+-- SCRIPT DATALOAD 
 -- -----------------------------------------------
 -- Tabela super ADM
 -- -----------------------------------------------
@@ -42,22 +40,32 @@ INSERT INTO endereco (fk_fabrica, cep, numero, rua, complemento, bairro, cidade,
 (4, '16400000', 3200, 'Rodovia Marechal Rondon', 'Km 545', 'Polo Industrial', 'Lins', 'São Paulo');
 
 -- -----------------------------------------------
--- Tabela Usuário 
+-- Tabela Usuário (Gerente/Usuário)
 -- -----------------------------------------------
-INSERT INTO usuario (id, fk_fabrica, email, senha, nome, genero, tipo_acesso, desc_tipoacesso, status, data_nascimento, cargo) VALUES
-('11111111-1111-1111-1111-111111111111', 1, 'gerente.seara@seara.com.br', 'Seara12345', 'João Mendes', 'masc', 1, 'Remover ábaco', true, '1980-05-15', 'Gerente'),
-('11111111-1111-1111-1111-111111111112', 1, 'supervisor.seara@seara.com.br', 'Seara12345', 'Ana Costa', 'fem', 2, 'leitura e revisão de dados', true, '1985-08-22', 'Supervisor'),
-('11111111-1111-1111-1111-111111111113', 2, 'gerente.sadia@sadia.com.br', 'Sadia12345', 'Pedro Oliveira', 'masc', 1, 'Acesso total', true, '1978-12-10', 'Gerente'),
-('11111111-1111-1111-1111-111111111114', 3, 'gerente.jbs@jbs.com.br', 'Jbs12345', 'Fernanda Lima', 'fem', 1, 'Acesso total', true, '1982-03-30', 'Gerente'),
-('11111111-1111-1111-1111-111111111115', 4, 'supervisor.lins@jbs.com.br', 'Jbs12345', 'Ricardo Souza', 'masc', 2, 'Acesso limitado', true, '1990-07-18', 'Supervisor');
+
+-- Gerente 
+INSERT INTO usuario (fk_fabrica, email, senha, nome, genero, tipo_acesso, desc_tipoacesso, status, data_nascimento, cargo) VALUES
+(1, 'gerente.seara@seara.com.br', 'Seara12345', 'João Mendes', 'masc', 1, 'Remover ábaco', true, '1980-05-15', 'Gerente'),
+(1, 'supervisor.seara@seara.com.br', 'Seara12345', 'Ana Costa', 'fem', 2, 'leitura e revisão de dados', true, '1985-08-22', 'Gerente'),
+(2, 'gerente.sadia@sadia.com.br', 'Sadia12345', 'Pedro Oliveira', 'masc', 1, 'Acesso total', true, '1978-12-10', 'Gerente'),
+(3, 'gerente.jbs@jbs.com.br', 'Jbs12345', 'Fernanda Lima', 'fem', 1, 'Acesso total', true, '1982-03-30', 'Gerente'),
+(4, 'supervisor.lins@jbs.com.br', 'Jbs12345', 'Ricardo Souza', 'masc', 2, 'Acesso limitado', true, '1990-07-18', 'Gerente');
+
+-- Usuário
+INSERT INTO usuario (id_gerente, fk_fabrica, email, senha, nome, genero, tipo_acesso, desc_tipoacesso, status, data_nascimento, cargo) VALUES
+('7f085232-954a-4462-a3fb-9002bb18fd1c', 1, 'usuariocomum.seara@seara.com.br', 'Seara12345', 'João Mendes', 'masc', 1, 'Remover ábaco', true, '1980-05-15', 'Usuário comum'),
+('c5760bc5-64f5-4fa7-8756-310fdf8650f3', 1, 'usuariocomum1.seara@seara.com.br', 'Seara12345', 'Ana Costa', 'fem', 2, 'leitura e revisão de dados', true, '1985-08-22', 'Usuário comum'),
+('37e1ecec-85f4-4ee8-980d-772a354b7a7c', 2, 'usuariocomum.sadia@sadia.com.br', 'Sadia12345', 'Pedro Oliveira', 'masc', 1, 'Acesso total', true, '1978-12-10', 'Usuário comum'),
+('1ad1f2ec-8f62-4cef-863c-e20815dd0d11', 3, 'usuariocomum.jbs@jbs.com.br', 'Jbs12345', 'Fernanda Lima', 'fem', 1, 'Acesso total', true, '1982-03-30', 'Usuário comum'),
+('54ab6ed9-8619-4afa-b3a3-ee16f7e4b9f8', 4, 'usuariocomum.lins@jbs.com.br', 'Jbs12345', 'Ricardo Souza', 'masc', 2, 'Acesso limitado', true, '1990-07-18', 'Usuário comum');
 
 -- -----------------------------------------------
 -- Tabela Foto de Perfil 
 -- -----------------------------------------------
 INSERT INTO foto_perfil (fk_usuario, url) VALUES
-('11111111-1111-1111-1111-111111111111', 'https://storage.avicola.com.br/perfis/joao_mendes.jpg'),
-('11111111-1111-1111-1111-111111111112', 'https://storage.avicola.com.br/perfis/ana_costa.jpg'),
-('11111111-1111-1111-1111-111111111113', 'https://storage.avicola.com.br/perfis/pedro_oliveira.jpg');
+('b39b248d-b5b9-42f0-addd-e1f404db5ee1', 'https://storage.avicola.com.br/perfis/joao_mendes.jpg'),
+('a6426fae-d8c0-43b3-8e10-c237c3e4ee44', 'https://storage.avicola.com.br/perfis/ana_costa.jpg'),
+('9e16cbff-3f32-4a13-9b90-f6a83e4e6e3e', 'https://storage.avicola.com.br/perfis/pedro_oliveira.jpg');
 
 -- -----------------------------------------------
 -- Tabela Ábaco
@@ -90,6 +98,8 @@ INSERT INTO linha (fk_abaco, nome) VALUES
 (2, 'Processamento'),
 (3, 'Inspeção Ante-Mortem'),
 (3, 'Inspeção Post-Mortem');
+
+-- ----------------------------------------------
 
 INSERT INTO coluna (fk_abaco, nome) VALUES
 (1, 'Leves'),
