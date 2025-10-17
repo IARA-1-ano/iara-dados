@@ -15,7 +15,7 @@ CREATE TABLE super_adm (
     nome VARCHAR(100) NOT NULL,
 	cargo VARCHAR(50) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
-    senha_hash VARCHAR(100) NOT NULL,
+    senha VARCHAR(100) NOT NULL,
     CONSTRAINT ck_senha CHECK (LENGTH(senha) >= 8)
 );
 
@@ -27,15 +27,18 @@ CREATE TABLE plano (
     nome VARCHAR(100) NOT NULL,
     valor DECIMAL(10,2) DEFAULT 0.00,
     descricao TEXT DEFAULT 'Sem descrição',
-    CONSTRAINT ck_valor_pag CHECK (valor >= 0)
+	duracao INTERVAL NOT NULL,
+    CONSTRAINT ck_valor_pag CHECK (valor >= 0),
+	CONSTRAINT ck_duracao CHECK (duracao > INTERVAL '0')
+	
 );
 
 -- --------------------------------------------------
 -- Tabela Método Pagamento
 -- --------------------------------------------------
-CREATE TABLE metodo_pagamento(
-	id SERIAL PRIMARY KEY,
-	tipo_pagamento VARCHAR(30) NOT NULL
+CREATE TABLE metodo_pagamento (
+    id SERIAL PRIMARY KEY,
+    tipo_pagamento VARCHAR(30) NOT NULL
 );
 
 -- --------------------------------------------------
@@ -60,7 +63,7 @@ CREATE TABLE endereco (
     id SERIAL PRIMARY KEY,
 	fk_fabrica INTEGER NOT NULL REFERENCES fabrica(id) ON DELETE CASCADE,
     cep VARCHAR(13) NOT NULL,
-    numero INT NOT NULL,
+    numero INTEGER NOT NULL,
     rua VARCHAR(100) NOT NULL,
     complemento VARCHAR(100),
 	bairro VARCHAR(50) NOT NULL,
@@ -76,11 +79,14 @@ CREATE TABLE endereco (
 CREATE TABLE usuario (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     fk_fabrica INTEGER NOT NULL REFERENCES fabrica(id) ON DELETE CASCADE,
+    id_gerente UUID DEFAULT uuid_generate_v4(),
     email VARCHAR(100) UNIQUE NOT NULL,
     senha VARCHAR(100) NOT NULL,
     nome VARCHAR(100) NOT NULL, 
-    tipo_acesso VARCHAR(50) NOT NULL,
-    status VARCHAR(50) DEFAULT true,
+    genero VARCHAR(20) NOT NULL,
+    tipo_acesso INTEGER NOT NULL,
+	desc_tipoacesso TEXT NOT NULL,
+    status BOOLEAN DEFAULT true,
     data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     data_nascimento DATE NOT NULL,
     cargo VARCHAR(20) NOT NULL,
@@ -168,7 +174,7 @@ CREATE TABLE condena (
     fk_linha INTEGER NOT NULL REFERENCES linha(id) ON DELETE CASCADE,
     fk_coluna INTEGER NOT NULL REFERENCES coluna(id) ON DELETE CASCADE,
     fk_foto INTEGER NOT NULL REFERENCES foto(id) ON DELETE CASCADE,
-    quantidade INT DEFAULT 0,
+    quantidade INTEGER DEFAULT 0,
     CONSTRAINT ck_qtd_condena CHECK (quantidade >= 0)
 );
 
@@ -178,7 +184,7 @@ CREATE TABLE condena (
 CREATE TABLE cor_peso (
     id SERIAL PRIMARY KEY,
     fk_abaco INTEGER NOT NULL REFERENCES abaco(id) ON DELETE CASCADE,
-    peso_valor INT DEFAULT 0,
+    peso_valor INTEGER DEFAULT 0,
     cor VARCHAR(80) NOT NULL,
     CONSTRAINT ck_peso CHECK (peso_valor >= 0)
 );
@@ -190,10 +196,12 @@ CREATE TABLE pagamento (
     id SERIAL PRIMARY KEY,
 	fk_fabrica INTEGER NOT NULL REFERENCES fabrica(id) ON DELETE CASCADE,
 	fk_plano INTEGER NOT NULL REFERENCES plano(id) ON DELETE CASCADE,
-    fk_metodoPag INTEGER NOT NULL REFERENCES metodo_pag(id) ON DELETE CASCADE,
+    fk_metodoPag INTEGER NOT NULL REFERENCES metodo_pagamento(id) ON DELETE CASCADE,
 	data_vencimento DATE NOT NULL,
 	valor DECIMAL(10,2) DEFAULT 0.00,
 	data_pagamento TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-	status BOOLEAN,
+	status BOOLEAN DEFAULT TRUE,
+	data_inicio TIMESTAMP NOT NULL,
+	CONSTRAINT ck_data_inicio CHECK (data_inicio > current_date),	
     CONSTRAINT ck_valor_pag CHECK (valor >= 0)
 );
