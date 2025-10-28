@@ -8,10 +8,6 @@ SHOW TIMEZONE;
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 -- --------------------------------------------------
--- Criação de tabelas
--- --------------------------------------------------
-
--- --------------------------------------------------
 -- Tabela Super Administrador
 -- --------------------------------------------------
 CREATE TABLE super_adm (
@@ -77,14 +73,16 @@ CREATE TABLE endereco (
     CONSTRAINT ck_num_endereco CHECK (numero >= 0)
 );
 
+
+-- -------------------
 -- --------------------------------------------------
 -- Tabela Usuário
 -- --------------------------------------------------
 CREATE TABLE usuario (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     fk_fabrica INTEGER NOT NULL REFERENCES fabrica(id) ON DELETE CASCADE,
-	id_gerente UUID REFERENCES usuario(id) ON DELETE SET NULL,   
-	email VARCHAR(100) UNIQUE NOT NULL,
+    id_gerente UUID REFERENCES usuario(id) ON DELETE SET NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
     senha VARCHAR(100) NOT NULL,
     nome VARCHAR(100) NOT NULL, 
     genero VARCHAR(20) NOT NULL,
@@ -205,37 +203,7 @@ CREATE TABLE pagamento (
 	valor DECIMAL(10,2) DEFAULT 0.00,
 	data_pagamento TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	status BOOLEAN DEFAULT TRUE,
-	data_inicio TIMESTAMP NOT NULL,
+	data_inicio TIMESTAMP,
 	CONSTRAINT ck_data_inicio CHECK (data_inicio > current_date),	
     CONSTRAINT ck_valor_pag CHECK (valor >= 0)
 );
-
-
--- --------------------------------------------------
--- Views
--- --------------------------------------------------
-
--- --------------------------------------------------
--- View de exibição Fabrica
--- --------------------------------------------------
-	CREATE OR REPLACE VIEW exibicao_fabrica AS
-	SELECT 
-		f.id,
-		f.nome_unidade,
-		f.cnpj_unidade,
-		f.status,
-		f.email_corporativo,
-		f.nome_industria,
-		f.ramo,
-		format('%s, n° %s %s', e.rua, e.numero, e.complemento) AS "endereco",
-		p.nome  AS "plano"
-		from fabrica f
-	LEFT JOIN endereco e ON e.fk_fabrica = f.id
-	JOIN plano p ON p.id = f.fk_plano;
-
--- --------------------------------------------------
--- View de exibição de Gerente
--- --------------------------------------------------
-	CREATE OR REPLACE VIEW email_gerentes AS
-	SELECT email FROM usuario u 
-	WHERE u.tipo_acesso = 2;
