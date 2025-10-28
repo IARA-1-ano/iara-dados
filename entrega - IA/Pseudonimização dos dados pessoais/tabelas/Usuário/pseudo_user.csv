@@ -1,0 +1,11 @@
+,id,fk_fabrica_pseudo,id_gerente_pseudo,email_pseudo,senha_criptografada,nome_pseudo,genero,desc_tipoacesso_pseudo,status_pseudo,data_criacao_pseudo,data_nascimento_pseudo,cargo_pseudo
+0,***********************************cd87fea9ed,FK,ID,ger**********@seara.com.br,$2a$15$mABY7ntafExp1hTioSpzB.5EQBRlfIjuXA4Sc5Fonu6nlQU6MtRGa,User000,masc,R************,T***,2025/**/** - **********************,1980/**/**,Ge*****
+1,***********************************750d598b4a,FK,ID,sup*************@seara.com.br,$2a$15$mABY7ntafExp1hTioSpzB.5EQBRlfIjuXA4Sc5Fonu6nlQU6MtRGa,User001,fem,l*************************,T***,2025/**/** - **********************,1985/**/**,Ge*****
+2,***********************************db2db47906,FK,ID,ger**********@sadia.com.br,$2a$15$mABY7ntafExp1hTioSpzB.5EQBRlfIjuXA4Sc5Fonu6nlQU6MtRGa,User002,masc,A***********,T***,2025/**/** - **********************,1978/**/**,Ge*****
+3,***********************************ed47e5b949,FK,ID,ger********@jbs.com.br,$2a$15$mABY7ntafExp1hTioSpzB.5EQBRlfIjuXA4Sc5Fonu6nlQU6MtRGa,User003,fem,A***********,T***,2025/**/** - **********************,1982/**/**,Ge*****
+4,***********************************89dac60aa8,FK,ID,sup************@jbs.com.br,$2a$15$mABY7ntafExp1hTioSpzB.5EQBRlfIjuXA4Sc5Fonu6nlQU6MtRGa,User004,masc,A**************,T***,2025/**/** - **********************,1990/**/**,Ge*****
+5,***********************************05639d5f07,FK,ID,usu***************@seara.com.br,Seara12345,User005,masc,R************,T***,2025/**/** - **********************,1980/**/**,Us***********
+6,***********************************3575b88602,FK,ID,usu****************@seara.com.br,Seara12345,User006,fem,l*************************,T***,2025/**/** - **********************,1985/**/**,Us***********
+7,***********************************5c2369d7f3,FK,ID,usu***************@sadia.com.br,Sadia12345,User007,masc,A***********,T***,2025/**/** - **********************,1978/**/**,Us***********
+8,***********************************6756130393,FK,ID,usu*************@jbs.com.br,Jbs12345,User008,fem,A***********,T***,2025/**/** - **********************,1982/**/**,Us***********
+9,***********************************d5f5528818,FK,ID,usu**************@jbs.com.br,Jbs12345,User009,masc,A**************,T***,2025/**/** - **********************,1990/**/**,Us***********
