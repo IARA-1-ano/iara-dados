@@ -1,7 +1,7 @@
---Colocando o db para nossa TIMEZONE
+-- Colocando o db para nossa TIMEZONE
 SET TIMEZONE = 'America/Sao_Paulo';
 
---Verificação de TIMEZONE
+-- Verificação de TIMEZONE
 SHOW TIMEZONE;
 
 -- Ativando extensão de UUID
@@ -73,8 +73,6 @@ CREATE TABLE endereco (
     CONSTRAINT ck_num_endereco CHECK (numero >= 0)
 );
 
-
--- -------------------
 -- --------------------------------------------------
 -- Tabela Usuário
 -- --------------------------------------------------
@@ -207,3 +205,32 @@ CREATE TABLE pagamento (
 	CONSTRAINT ck_data_inicio CHECK (data_inicio > current_date),	
     CONSTRAINT ck_valor_pag CHECK (valor >= 0)
 );
+
+-- --------------------------------------------------
+-- Views
+-- --------------------------------------------------
+
+-- --------------------------------------------------
+-- View para visualização de fábrica
+-- --------------------------------------------------
+	CREATE OR REPLACE VIEW exibicao_fabrica AS
+	SELECT 
+		f.id,
+		f.nome_unidade,
+		f.cnpj_unidade,
+		f.status,
+		f.email_corporativo,
+		f.nome_industria,
+		f.ramo,
+		format('%s, n° %s %s', e.rua, e.numero, e.complemento) AS "endereco",
+		p.nome  AS "plano"
+	FROM fabrica f
+	LEFT JOIN endereco e ON e.fk_fabrica = f.id
+	JOIN plano p ON p.id = f.fk_plano;
+
+-- --------------------------------------------------
+-- View para visualização de gerente
+-- --------------------------------------------------
+	CREATE OR REPLACE VIEW email_gerentes AS
+	SELECT email FROM usuario WHERE tipo_acesso = 2;
+
