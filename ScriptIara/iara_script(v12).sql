@@ -89,7 +89,7 @@ CREATE TABLE usuario (
     status BOOLEAN DEFAULT true,
     data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     data_nascimento DATE NOT NULL,
-    cargo VARCHAR(20) NOT NULL,
+    cargo VARCHAR(50) NOT NULL,
     CONSTRAINT ck_senha CHECK (LENGTH(senha) >= 8),
     CONSTRAINT ck_dataN CHECK (data_nascimento < CURRENT_DATE)
 );
