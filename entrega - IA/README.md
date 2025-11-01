@@ -17,39 +17,42 @@ Dentre os itens que compõem ela, podemos destacar memoriais descritivos, script
 
 A partir dos itens utilizados no trabalho que estão dentro da pasta "entrega - IA", também há o seguinte fluxo de hierarquia, para dividir os assuntos dentro dela:
 
-
-📁 entrega - IA
-├── 📁 .idea/
-│
-├── 📁 Prompt do Sistema/
-│   └── 📝 MEMORIAL DESCRITIVO – PROMPT DE SISTEMA.docx
-│
-├── 📁 Proteção dos dados pessoais/
-│   ├── 📁 Formatação/
-│   │   ├── 📝 MEMORIAL DESCRITIVO – CRIPTOGRAFIA.docx
-│   │   └── 📝 MEMORIAL DESCRITIVO – PROTEÇÃO DOS DADOS PESSOAIS DOS USUÁRIOS.docx
-│   │
-│   └── 📁 tabelas/
-│       ├── 📁 SuperAdm/
-│       │   ├── 📁 CSV/
-│       │   ├── 📁 ImagemBanco/
-│       │   └── 📓 SuperAdm.ipynb
-│       │
-│       └── 📁 Usuário/
-│           ├── 📁 CSV/
-│           ├── 📁 ImagemBanco/
-│           └── 📓 usuario.ipynb
-│
-├── 📁 Script BD dados pessoais/
-│   └── 💾 db1ano_dados_pessoais.sql
-│
-├── ⚙️ .env
-├── ⚙️ .gitignore
-└── 📄 README.md
-
+	
+	📁 entrega - IA
+	├── 📁 .idea/
+	│
+	├── 📁 Prompt do Sistema/
+	│   └── 📝 MEMORIAL DESCRITIVO – PROMPT DE SISTEMA.docx
+	│
+	├── 📁 Proteção dos dados pessoais/
+	│   ├── 📁 Formatação/
+	│   │   ├── 📝 MEMORIAL DESCRITIVO – CRIPTOGRAFIA.docx
+	│   │   └── 📝 MEMORIAL DESCRITIVO – PROTEÇÃO DOS DADOS PESSOAIS DOS USUÁRIOS.docx
+	│   │
+	│   └── 📁 tabelas/
+	│       ├── 📁 SuperAdm/
+	│       │   ├── 📁 CSV/
+	│       │   ├── 📁 ImagemBanco/
+	│       │   └── 📓 SuperAdm.ipynb
+	│       │
+	│       └── 📁 Usuário/
+	│           ├── 📁 CSV/
+	│           ├── 📁 ImagemBanco/
+	│           └── 📓 usuario.ipynb
+	│
+	├── 📁 Script BD dados pessoais/
+	│   └── 💾 db1ano_dados_pessoais.sql
+	│
+	├── ⚙️ .env
+	├── ⚙️ .gitignore
+	└── 📄 README.md
+	
 
 
 Dentro da pasta "Prompt do Sistema", encontra-se o "MEMORIAL DESCRITIVO – PROMPT DE SISTEMA", conforme o exigido nas competências de IA e que contém o modelo de prompt de Sistema modelado pelo 1° ano.
+
+	MEMORIAL DESCRITIVO – PROMPT DE SISTEMA.docx
+	
 
 A partir da pasta "Formatação", dentro de "Proteção dos dados pessoais", temos 2 arquivos .docx que contemplam a demanda de IA e são responsáveis por documentar as operações realizadas:
 	
@@ -67,10 +70,17 @@ As subpastas de "tabelas", dentro de "Proteção dos dados pessoais" corresponde
 
 Já a pasta "Script BD dados pessoais", é responsável por guardar o script do banco criado para guardar as informações protegidas dos dados sensíveis (db1ano_dados_pessoais.sql).
 
+	db1ano_dados_pessoais.sql
+
 
 A respeito do .env, ele é responsável por guardar as credenciais do banco remoto criado para o projeto, e foi acrescentada ao .gitignore para não ser exposto.
 
+	.env
+	
+
 Como citado, o .gitignore foi utilizado para ignorar o .env, mas também foi responsável por guardar as pastas "CSV", as quais contém os arquivos .csv com os pares de informação original e protegida.
+
+	.gitignore
 
 
 
@@ -78,4 +88,5 @@ Como citado, o .gitignore foi utilizado para ignorar o .env, mas também foi res
 		
 Observações finais:
 Dentro de cada arquivo .ipynb, foi executado um comando 'display(<df_protegido>)' para facilitar a visualização dos dados já com as devidas medidas de proteção.
+Para acessar os dados originais, o dataload e o script original do banco, basta acessar a pasta "ScriptIara" ao invés da "entrega - IA".
 
