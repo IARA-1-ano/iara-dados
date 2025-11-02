@@ -9,9 +9,10 @@ O banco foi desenvolvido para sustentar o sistema principal do aplicativo IARA, 
 
 ```
 
-📁 ScriptIara/
-└── 💾 iara_script(v12).sql
-└── 💾 iara_scriptDataload(vFinal).sql
+📁 dadosIaraFinal/
+    └──📁 ScriptIaraBD/
+        └── 💾 iara_script(v12).sql
+        └── 💾 iara_scriptDataload(vFinal).sql
 
 ````
 
@@ -159,6 +160,3 @@ SELECT email FROM usuario WHERE tipo_acesso = 2;
 * `iara_scriptDataload(v12).sql` → Script completo do banco de dados do sistema IARA.
 
 
-```
-
----
