@@ -11,7 +11,7 @@ CREATE TABLE super_adm_pseudo (
     id VARCHAR(10)  PRIMARY KEY,
     nome_pseudo VARCHAR(100) NOT NULL,
 	cargo_pseudo VARCHAR(50) NOT NULL,
-    email_pseudo VARCHAR(100) UNIQUE NOT NULL,
+    email_pseudo VARCHAR(100) NOT NULL,
     senha_criptografada VARCHAR(100) NOT NULL
 );
 
