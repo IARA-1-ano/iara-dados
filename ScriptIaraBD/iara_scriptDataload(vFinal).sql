@@ -3,13 +3,24 @@
 -- Tabela super ADM
 -- -----------------------------------------------
 INSERT INTO super_adm (nome, cargo, email, senha) VALUES
-('Ryan Cursino', 'Desenvolvedor Crud', 'Ryan.guloso@germinare.com.br', 'Arakakilindo123');
+('Lucas Kluska Donini', 'Dev Backend', 'lucas.donini@germinare.org.br', '$2a$15$.RNms4TylNvpnjxb3FVP0eK8NMw9zXVbchFaZW6VS0iR2ZFHJkfAu'),
+('Ryan Cursino Moraes', 'Dev Backend', 'ryan.moraes@germinare.org.br', '$2a$15$pSyKf8/wrB7lLO6YrYlHL.hfDiFeIiKsqtV0GmzYkJa7g29v/4Hdy'),
+('Gustavo Kenzo Shirahata Ota', 'Dev Frontend', 'gustavo.ota@germinare.org.br', '$2a$15$CweaGwjD9fESqkuFqFliJeyLEy1Vv6cBYx.05bLBgNkdVBr9JhOBC'),
+('Luigi Azevedo Biondo', 'Dev Frontend', 'luigi.biondo@germinare.org.br', '$2a$15$6pG3a8QJkb9F2jcHhtIl..WeLMoohFveGlqs8XJ/oshvx27WWQjuK'),
+('Enzo Christowan Joaquim', 'Analista de Dados', 'enzo.joaquim@germinare.org.br', '$2a$15$4CHCAC2RhRkDnPXvOt5JDuM5/pfBTTa09.9oTbT/Z7wryTxxE5IBi'),
+('Letícia Favoretto Pires de Camargo', 'UX Designer e Engenheira de Dados', 'leticia.camargo@germinare.org.br', '$2a$15$3g5smqPP7tPeNpDjyGUiKumKB9yIsELtWM9g.31OzSJG44NBlseuW'),
+('Nicolas Isepe Paz', 'Engenheiro de Dados', 'nicolas.paz@germinare.org.br', '$2a$15$SbjpG85.RrTeBLkMZY8HkeRzaoAJCpTUHdxvUMv.P1QO8gkKgxo3O'),
+('Davi Arakaki Oliveira de Souza', 'Engenheiro de Dados', 'davi.souza@germinare.org.br', '$2a$15$hZ0zxuAZin4X0vtq54DKEOYVaSXpYnPseLoHElABMUL2THzJ8Yfyi');
 
 -- -----------------------------------------------
 -- Tabela Plano 
 -- -----------------------------------------------
 INSERT INTO plano (nome, valor, descricao, duracao) VALUES
-('Mar Profundo', 2099.99, 'Plano full', INTERVAL '30 days');
+('Plano Teste', 0.00, 'Teste grátis', INTERVAL '15 days'),
+('Plano Japurá', 2100.00, 'Plano com acesso total', INTERVAL '1 month'),
+('Plano Purus', 12600.00, 'Plano com acesso total', INTERVAL '6 months'),
+('Plano Madeira', 25200.00, 'Plano com acesso total', INTERVAL '1 year'),
+('Plano Amazonas', 100000.00, 'Plano com acesso total', INTERVAL '5 years');
 
 -- -----------------------------------------------
 -- Tabela Método pagamento
@@ -25,47 +36,42 @@ INSERT INTO metodo_pagamento (tipo_pagamento) VALUES
 -- Tabela Fábrica 
 -- -----------------------------------------------
 INSERT INTO fabrica (fk_plano, email_corporativo, nome_unidade, cnpj_unidade, status, nome_industria, ramo) VALUES
-(1, 'seara.avicula@seara.com.br', 'Seara Unidade Chapecó', '12345678000195', true, 'Seara Alimentos', 'Avícola de Corte'),
-(1, 'sadia.avicula@sadia.com.br', 'Sadia Unidade Toledo', '98765432000187', true, 'Sadia', 'Avícola de Corte'),
-(1, 'jbs.amparo@jbs.com.br', 'JBS Unidade Amparo', '45678912000134', true, 'JBS Friboi', 'Avícola de Corte'),
-(1, 'jbs.lins@jbs.com.br', 'JBS Unidade Lins', '32165498000176', true, 'JBS Friboi', 'Avicultura de Corte');
+(1, 'seara.chapeco@seara.com.br', 'Seara Unidade Chapecó', '12345678000195', true, 'Seara Alimentos', 'Avícola de Corte'),
+(2, 'seara.rolandia@seara.com.br', 'Seara Unidade Rolândia', '98765432000187', true, 'Seara Alimentos', 'Avícola de Corte'),
+(3, 'jbs.amparo@jbs.com.br', 'JBS Unidade Amparo', '45678912000134', true, 'JBS Friboi', 'Avícola de Corte'),
+(4, 'jbs.osasco@jbs.com.br', 'JBS Unidade Osasco', '32165498000176', true, 'JBS Friboi', 'Avicultura de Corte'),
+(5, 'jbs.lins@jbs.com.br', 'JBS Unidade Lins', '32165408000176', true, 'JBS Friboi', 'Avicultura de Corte');
 
 -- -----------------------------------------------
 -- Tabela Endereço
 -- -----------------------------------------------
 INSERT INTO endereco (fk_fabrica, cep, numero, rua, complemento, bairro, cidade, estado) VALUES
 (1, '89802020', 1500, 'Rodovia SC-155', 'Km 15', 'Industrial', 'Chapecó', 'Santa Catarina'),
-(2, '85900000', 2500, 'Av. das Indústrias', 'Lote 25', 'Zona Industrial', 'Toledo', 'Paraná'),
+(2, '85900000', 2500, 'Av. das Indústrias', 'Lote 25', 'Zona Industrial', 'Rolândia', 'Paraná'),
 (3, '13900000', 1800, 'Rodovia SP-340', 'Km 118', 'Distrito Industrial', 'Amparo', 'São Paulo'),
-(4, '16400000', 3200, 'Rodovia Marechal Rondon', 'Km 545', 'Polo Industrial', 'Lins', 'São Paulo');
+(4, '16400000', 3200, 'Rodovia Marechal Rondon', 'Km 545', 'Osasco', 'São Paulo', 'São Paulo'),
+(5, '09012323', 3201, 'Rodovia Marechal Lins', 'Km 546', 'Polo Industrial de ', 'Lins', 'São Paulo');
 
 -- -----------------------------------------------
 -- Tabela Usuário (Gerente/Usuário)
 -- -----------------------------------------------
--- Gerente 
-INSERT INTO usuario (fk_fabrica, email, senha, nome, genero, tipo_acesso, desc_tipoacesso, status, data_nascimento, cargo) VALUES
-(1, 'gerente.seara@seara.com.br', '$2a$15$mABY7ntafExp1hTioSpzB.5EQBRlfIjuXA4Sc5Fonu6nlQU6MtRGa', 'João Mendes', 'masc', 1, 'Remover ábaco', true, '1980-05-15', 'Gerente'),
-(1, 'supervisor.seara@seara.com.br', '$2a$15$mABY7ntafExp1hTioSpzB.5EQBRlfIjuXA4Sc5Fonu6nlQU6MtRGa', 'Ana Costa', 'fem', 2, 'leitura e revisão de dados', true, '1985-08-22', 'Gerente'),
-(2, 'gerente.sadia@sadia.com.br', '$2a$15$mABY7ntafExp1hTioSpzB.5EQBRlfIjuXA4Sc5Fonu6nlQU6MtRGa', 'Pedro Oliveira', 'masc', 1, 'Acesso total', true, '1978-12-10', 'Gerente'),
-(3, 'gerente.jbs@jbs.com.br', '$2a$15$mABY7ntafExp1hTioSpzB.5EQBRlfIjuXA4Sc5Fonu6nlQU6MtRGa', 'Fernanda Lima', 'fem', 1, 'Acesso total', true, '1982-03-30', 'Gerente'),
-(4, 'supervisor.lins@jbs.com.br', '$2a$15$mABY7ntafExp1hTioSpzB.5EQBRlfIjuXA4Sc5Fonu6nlQU6MtRGa', 'Ricardo Souza', 'masc', 2, 'Acesso limitado', true, '1990-07-18', 'Gerente');
-select * from usuario
--- Usuário
-INSERT INTO usuario (id_gerente, fk_fabrica, email, senha, nome, genero, tipo_acesso, desc_tipoacesso, status, data_nascimento, cargo) VALUES
-('1ad34692-83fa-46a3-acd3-ebcd87fea9ed', 1, 'usuariocomum.seara@seara.com.br', 'Seara12345', 'João Mendes', 'masc', 1, 'Remover ábaco', true, '1980-05-15', 'Usuário comum'),
-('1128f100-8290-4bce-976e-fc750d598b4a', 1, 'usuariocomum1.seara@seara.com.br', 'Seara12345', 'Ana Costa', 'fem', 2, 'leitura e revisão de dados', true, '1985-08-22', 'Usuário comum'),
-('d63ac3c7-b7f4-4a63-92f1-c5db2db47906', 2, 'usuariocomum.sadia@sadia.com.br', 'Sadia12345', 'Pedro Oliveira', 'masc', 1, 'Acesso total', true, '1978-12-10', 'Usuário comum'),
-('2e50af4b-6ee8-417d-91d0-71ed47e5b949', 3, 'usuariocomum.jbs@jbs.com.br', 'Jbs12345', 'Fernanda Lima', 'fem', 1, 'Acesso total', true, '1982-03-30', 'Usuário comum'),
-('e0d071ca-4037-4efe-8841-8589dac60aa8', 4, 'usuariocomum.lins@jbs.com.br', 'Jbs12345', 'Ricardo Souza', 'masc', 2, 'Acesso limitado', true, '1990-07-18', 'Usuário comum');
 
-select * from usuario
+-- GERENTE
+INSERT INTO usuario (fk_fabrica, email, senha, nome, genero, tipo_acesso, desc_tipoacesso, status, data_nascimento, cargo) VALUES
+(1, 'ana.costa@seara.com.br', '$2a$15$6f0MKf1mUEVfSDQeN3OVc.2MYTjZxklW/cwvNnURh27TwbWBsVBOq', 'Ana Costa', 'feminino', 2, 'ler, tirar foto, aprovar foto, cadastrar ábaco, cadastrar pessoa', true, '1985-08-22', 'Gerente');
+
+-- USUÁRIOS
+INSERT INTO usuario(fk_fabrica, email, id_gerente, senha, nome, genero, tipo_acesso, desc_tipoacesso, status, data_nascimento, cargo) VALUES
+(1, 'emerson.souza@jbs.com.br', (select id from usuario where email = 'ana.costa@seara.com.br'), '$2a$15$pQkDPRa454W4Ls4si6OVseEQp/q8T04rxhiaA.jRJ08djUbJ30Bca', 'Emerson Souza', 'masculino', 1, 'ler, tirar foto, aprovar foto', true, '1990-07-18', 'Supersivor SIF'),
+(1, 'renata.cursino@jbs.com.br', (select id from usuario where email = 'ana.costa@seara.com.br'), '$2a$15$2nDRCcy8zthAjozlq2.P4eSOEBNaEy8Mj5.uF27/uJTvBp3rp1yTG', 'Renata Cursino', 'masculino', 1, 'ler, tirar foto, aprovar foto', true, '1990-07-18', 'Supervisor SIF');
+
 -- -----------------------------------------------
 -- Tabela Foto de Perfil 
 -- -----------------------------------------------
 INSERT INTO foto_perfil (fk_usuario, url) VALUES
-('a84e22da-7491-46af-91cd-ce05639d5f07', 'https://storage.avicola.com.br/perfis/joao_mendes.jpg'),
-('af9bdf12-7b74-4ce7-8eb5-4f3575b88602', 'https://storage.avicola.com.br/perfis/ana_costa.jpg'),
-('e4c1b2fb-9712-4c28-91df-605c2369d7f3', 'https://storage.avicola.com.br/perfis/pedro_oliveira.jpg');
+((select id from usuario where email = 'emerson.souza@jbs.com.br'), 'https://storage.avicola.com.br/perfis/emerson_souza.jpg'),
+((select id from usuario where email = 'emerson.souza@jbs.com.br'), 'https://storage.avicola.com.br/perfis/emerson_souza2.jpg'),
+((select id from usuario where email = 'emerson.souza@jbs.com.br'), 'https://storage.avicola.com.br/perfis/emerson_souza3.jpg');
 
 -- -----------------------------------------------
 -- Tabela Ábaco
@@ -74,7 +80,8 @@ INSERT INTO abaco (fk_fabrica, nome, descricao, ativo) VALUES
 (1, 'SIF 21 - Condenas Linha Abate', 'Ábaco para registro de condenas na linha de abate SIF 21', true),
 (2, 'SIF 15 - Controle Qualidade', 'Ábaco de controle de qualidade SIF 15', true),
 (3, 'SIF 04 - Inspeção Final', 'Ábaco de inspeção final SIF 04', true),
-(4, 'SIF 08 - Processamento', 'Ábaco de processamento SIF 08', true);
+(4, 'SIF 05 - Inspeção Final', 'Ábaco de inspeção final SIF 05', true),
+(5, 'SIF 08 - Processamento', 'Ábaco de processamento SIF 08', true);
 
 -- -----------------------------------------------
 -- Tabela Turno
@@ -82,9 +89,9 @@ INSERT INTO abaco (fk_fabrica, nome, descricao, ativo) VALUES
 INSERT INTO turno (fk_fabrica, nome, hora_inicio, hora_fim) VALUES
 (1, 'Turno A', '06:00:00', '14:00:00'),
 (1, 'Turno B', '14:00:00', '22:00:00'),
-(2, 'Turno Único', '07:00:00', '17:00:00'),
-(3, 'Turno A', '05:00:00', '13:00:00'),
-(3, 'Turno B', '13:00:00', '21:00:00'),
+(3, 'Turno Único', '07:00:00', '17:00:00'),
+(2, 'Turno A', '05:00:00', '13:00:00'),
+(2, 'Turno B', '13:00:00', '21:00:00'),
 (4, 'Turno Único', '08:00:00', '18:00:00');
 
 -- -----------------------------------------------
@@ -134,7 +141,7 @@ INSERT INTO cor_peso (fk_abaco, peso_valor, cor) VALUES
 INSERT INTO foto (fk_abaco, fk_turno, data_hora, url_imagem) VALUES
 (1, 1, '2024-01-15 10:30:00', 'https://storage.avicola.com.br/fotos/seara_turnoa_150124_1030.jpg'),
 (1, 2, '2024-01-15 18:45:00', 'https://storage.avicola.com.br/fotos/seara_turnob_150124_1845.jpg'),
-(2, 3, '2024-01-15 12:15:00', 'https://storage.avicola.com.br/fotos/sadia_turno_150124_1215.jpg'),
+(2, 3, '2024-01-15 12:15:00', 'https://storage.avicola.com.br/fotos/seara_turno_150124_1215.jpg'),
 (3, 4, '2024-01-15 09:00:00', 'https://storage.avicola.com.br/fotos/jbs_amparo_turnoa_150124_0900.jpg');
 
 -- -----------------------------------------------
@@ -143,7 +150,7 @@ INSERT INTO foto (fk_abaco, fk_turno, data_hora, url_imagem) VALUES
 INSERT INTO arquivo (fk_foto, fk_turno, data_hora, arquivo) VALUES
 (1, 1, '2024-01-15 10:35:00', 'https://storage.avicola.com.br/arquivos/relatorio_seara_turnoa_150124.pdf'),
 (2, 2, '2024-01-15 18:50:00', 'https://storage.avicola.com.br/arquivos/relatorio_seara_turnob_150124.pdf'),
-(3, 3, '2024-01-15 12:20:00', 'https://storage.avicola.com.br/arquivos/relatorio_sadia_150124.pdf'),
+(3, 3, '2024-01-15 12:20:00', 'https://storage.avicola.com.br/arquivos/relatorio_seara_150124.pdf'),
 (4, 4, '2024-01-15 09:05:00', 'https://storage.avicola.com.br/arquivos/relatorio_jbs_amparo_150124.pdf');
 
 -- -----------------------------------------------
